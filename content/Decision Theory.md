@@ -246,3 +246,7 @@ The intersecting section between the two curves is the `decision boundary` illus
 	<img src="Pasted image 20250217025446.png">
 </p>
 
+
+
+
+[[Building Classifiers]]

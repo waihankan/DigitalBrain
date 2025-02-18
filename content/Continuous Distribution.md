@@ -13,6 +13,7 @@ Area between [x1 and x2] under the curve of f(x) = probability of random variabl
 $$\int_{x_1}^{x_2} f(x)dx = X \in [x1, x2]$$
 
 Integral over the entire f(x) should be 1
+
 $$ \int_{-\infty}^{+\infty} f(x)dx = 1$$
 ---
 #### Expected Value of g(X): 
@@ -29,5 +30,3 @@ $$\mathbb{E}[aX + bY] = a\mathbb{E}[X] + b\mathbb{E}[X]$$
 #### Variance 
 A measure of how spread out the data points are in a set. It indicates how far each data point deviates from the mean (expected value). "Describes the dispersion of all values in the dataset."
 $$\sigma^2 = \text{Variance} = \mathbb{E}\,[(X-\mu)^2] = \mathbb{E}\, [X^2] - \mu^2$$
-
-💡

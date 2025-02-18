@@ -15,7 +15,7 @@ Bayes decision rule = Bayes classifier = optimal probabilistic classifier
 Posterior Probability 
 Prior Probability
 
-**Decision Rule is called a classifier and is denoted by `r`**. Formally, 
+**Decision Rule is called a classifier and is denoted by `r`**. Formaljly, 
 $$ r: \mathbb{R}^d \rightarrow \pm \,1 $$
 **Risk is denoted in capital `R` and is defined as the expected loss over all values of x and y**
 

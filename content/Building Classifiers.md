@@ -88,7 +88,8 @@ Substitute equation [[#^25d885]],
 
 $$P(Y=C|X) = \frac{e^{Q_{C}(x)}}{e^{Q_{D}(x)} \, + \, e^{Q_{D}(x)}}$$
 
-$P(Y=C|X) = \frac{1}{1 + \frac {e^{Q_{D}(x)}} {e^{Q_{C}(x)}}}$$
+$$P(Y=C|X) = \frac{1}{1 + \frac {e^{Q_{D}(x)}} {e^{Q_{C}(x)}}}$$
+
 $$P(Y=C|X) = \frac{1}{1 + e^{Q_{C}(x) - Q_{D}(x)}}$$
 
 **Logistic Function** / **Sigmoid Function** (Real-valued input $\rightarrow$ Probability) is in the form of : 
@@ -98,6 +99,7 @@ $$s(\gamma) = \frac{1}{1 + e^{-r}}$$
 Putting our probability equation into sigmoid function (monotonically increasing) form:
 
 $$s(Q_{C}(x) - Q_{D}(x)) = \frac{1}{1 + e^{Q_{C}(x) - Q_{D}(x)}}$$
+
 🔴 Answer: **Now, we can calculate our correctness of the prediction using the sigmoid function. **
 
 $\rightarrow$ Recall the decision function is $Q_{C}(x) -Q_{D}(x)$. The output of the sigmoid function can be interpreted as the probability of the data point belonging to the correct class.

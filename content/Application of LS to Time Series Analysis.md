@@ -3,7 +3,7 @@ title: Application of LS to Time Series Analysis
 tags:
   - eecs127
   - least-square
-draft: true
+draft: false
 ---
 Predicting the future based on the past few steps. If we have the weights and if we have the previous positions, can predict next steps.  Assuming the error term is zero mean. e(k) = y(k) - wTphi(k)
 

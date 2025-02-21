@@ -126,6 +126,13 @@ title: This is a tip
 This is the content of the admonition tip.
 ```
 
+> [!bug]- This is a tip
+> This is the content of the admonition tip.
+
+
+> [!attention] test
+> hello
+
 
 ```ad-bug 
 title: Big Bug

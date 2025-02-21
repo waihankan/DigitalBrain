@@ -42,12 +42,21 @@ This V is called **orthogonal matrix** (in math) **orthonormal matrix**. Orthono
 
 Choose some eigenvalues $\lambda_{i}$:
 
-$$\Lambda = \begin{bmatrix}
-\lambda_{1} &  &  \\
- & \ddots &  \\
- &  & \lambda_{n} 
-\end{bmatrix}$$
+
+
+
+ $$
+ \Lambda = \begin{bmatrix}
+\lambda_{1} &  \\
+ & \ddots  \\
+ &  &  \lambda_{n} 
+\end{bmatrix}
+$$   
+
+
+
 $$Av_{i} = \lambda_{i}v_{i}$$
+
 $$AV = V\Lambda $$
 
 $$A = V\Lambda V^T$$
@@ -140,11 +149,5 @@ $\lvert \Sigma \rvert \text{determinant}$
 $\Sigma$ is the d x d PSD **Covariance Matrix**
 $\Sigma^{-1}$ is the d x d PSD **Precision Matrix**
 
-
-```
-> [!tip] this is a tip
->
-> This is the content of the tip
-```
 
 

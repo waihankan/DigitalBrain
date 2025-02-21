@@ -60,7 +60,9 @@ $$AA^T = U\Sigma V^TV\Sigma^TU^T = U(\Sigma \Sigma^T)U^T$$
 
 `v's` and `u's` are orthogonal since $AA^T$ and $A^TA$ are symmetric matrices. 
 
-$$A\begin{bmatrix}
+$$
+
+A\begin{bmatrix}
 v_{1}\dots v_{r} 
 \end{bmatrix} = 
 \begin{bmatrix}

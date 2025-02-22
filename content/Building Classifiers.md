@@ -36,8 +36,12 @@ Caution: Although the name is called Gaussian "Discriminant" Analysis, please no
 
 #### Fundamental Assumption: Each class has a Normal Gaussian Distribution.
 
-$$ X \sim \mathbb{N}(u, \sigma^2)$$
+$$ 
+X \sim \mathbb{N}(u, \sigma^2)
+$$
+
 $$f(x) = \frac{1}{(\sqrt{ 2\pi} \sigma)^d} \cdot \exp\left(-\frac{\lVert  x - \mu\rVert^2}{2\sigma^2}\right)$$
+
 $\mu, \sigma \; \text{and} \; \text{x are scalars and d = dimension}$ ^f1b0fd
 
 >[!question] How did we get here?
@@ -77,7 +81,7 @@ r^*(x) = \begin{cases} C\:,
 D, & \text{otherwise }
 \end{cases}
 $$
-`Bayes Deicions Boundary is where x satisfies ` $Q_{C}(x) -Q_{D}(x) = 0$
+`Bayes Deicions Boundary is where x satisfies`  $Q_{C}(x) -Q_{D}(x) = 0$
 
 $Q_{C}(x) -Q_{D}(x) = 0$ is a **quadratic function** and therefore, in 1-dimension, the **BDB** may have 1 or 2 points. In d-dimension, the **BDB** is a quadric
 

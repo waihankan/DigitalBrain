@@ -210,8 +210,8 @@ Class C and Class D have same variance as well as the same Prior Probability $\p
 
 Then, the **Bayes decision boundary** is :
 
-$$(
-\mu_{C} - \mu_{D}).x - (\mu_{C}-\mu_{D}).\left( \frac{\mu_{c} + \mu_{D}}{2} \right) = 0
+$$
+( \mu_{C} - \mu_{D}).x - (\mu_{C}-\mu_{D}).\left( \frac{\mu_{c} + \mu_{D}}{2} \right) = 0
 $$
 This equation is the same as the "centroid method".
 

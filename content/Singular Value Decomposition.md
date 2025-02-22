@@ -6,7 +6,6 @@ tags:
   - data-analysis
 ---
 
-
 > [!abstract] 
 > Singular Value Decomposition is a way of decomposing any matrix and more powerful than eigen value decomposition or spectral decomposition.
 

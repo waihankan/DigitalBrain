@@ -30,7 +30,9 @@ In Eigenvalue Decomposition, A is diagonalized as $A = U\Lambda U^T$. There are 
 
 Suppose $A \in R^{m\times n}$
 
-$$A = U\Sigma V^T$$
+$$
+A = U\Sigma V^T
+$$
 There are two sets of singular vectors. For eigenvectors, we only have one.
 
 U = left singular vector $U \in R^{m \times m}$ $AA^T$
@@ -40,11 +42,21 @@ $\Sigma$ = diag ($\sigma_{1}, \sigma_{2}, \dots, \sigma_{r}$)
 $A^TA$ is symmetric, square (n x n), **positive semi definite** (can be proven using norm property).
 
 
-$$A^TA = V\Sigma V^T \in R^{n \times n}$$
-$$AA^T = U\Sigma U^T \in R^{m \times m}$$
+$$
+A^TA = V\Sigma V^T \in R^{n \times n}
+$$
 
-$$ A^TA = V\Sigma^TU^TU\Sigma V = V(\Sigma^T\Sigma) V$$
-$$AA^T = U\Sigma V^TV\Sigma^TU^T = U(\Sigma \Sigma^T)U^T$$
+$$
+AA^T = U\Sigma U^T \in R^{m \times m}
+$$
+
+$$ 
+A^TA = V\Sigma^TU^TU\Sigma V = V(\Sigma^T\Sigma) V
+$$
+
+$$
+AA^T = U\Sigma V^TV\Sigma^TU^T = U(\Sigma \Sigma^T)U^T
+$$
 
 
 >[!Attention] Attention
@@ -77,13 +89,19 @@ u_{1} \dots u_{r}
 \end{bmatrix}
 $$
 
-$$ Av_{i} = \sigma_{i}u_{i}$$
-$$\text{Thus, } \quad u_{i} = \frac{Av_{i}}{\sigma_{i}} \quad \text{and these u are orthogonal}$$
+$$ 
+Av_{i} = \sigma_{i}u_{i}
+$$
+$$
+\text{Thus, } \quad u_{i} = \frac{Av_{i}}{\sigma_{i}} \quad \text{and these u are orthogonal}
+$$
 
 
 A can also be written as sum of rank one matrices with $\sigma$ determining the "importance / contribution" of that rank-one matrix (dyad).
 
-$$A = \sum_{i=1}^r \sigma_{i}u_{i}v_{i}^T$$
+$$
+A = \sum_{i=1}^r \sigma_{i}u_{i}v_{i}^T
+$$
 
 ##### When are U and V the same? 
 

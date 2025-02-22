@@ -600,7 +600,13 @@ ol.overflow {
 
 .katex-display {
   overflow-x: auto;
-   
+  overflow-y: hidden;
+  font-size: 1.1em;
+}
+
+.katex {
+  font-size: 1.1em !important;
+}
 
 .external-embed.youtube,
 iframe.pdf {

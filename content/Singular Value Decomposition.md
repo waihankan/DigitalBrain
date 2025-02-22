@@ -13,6 +13,8 @@ tags:
 [[Miscellaneous Facts about Matrices and Decomposition]]
 
 
+[Gilbert Strang: The Four Fundamental Subspaces: 4 Lines](https://web.mit.edu/18.06/www/Essays/newpaper_ver3.pdf)
+
 In Eigenvalue Decomposition, A is diagonalized as $A = U\Lambda U^T$. There are three big problems when it comes to this decomposition. 
 * The matrix must be a **square matrix**
 * The matrix must be **diagonalizable**. (must have a complete set of eigenvectors) 

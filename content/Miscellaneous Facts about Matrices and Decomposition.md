@@ -1,13 +1,9 @@
 ---
 title: Miscellaneous Facts about Matrices and Decomposition
-draft: 
 tags:
   - linear-algebra
 ---
-
-
-
-> [!note] Symmetric Matrix
+> [!important] Symmetric Matrix
 > If the matrix A is real, then a square matrix A is symmetric if $A = A^T$. However, for complex matrices, the matrix is "symmetric | Hermitian" $\iff A = A^H$ is a **Hermitian** Matrix (conjugate transpose of $\mathbf{A}$).
 
 Characteristics of **Real** Symmetric Matrices:
@@ -16,7 +12,7 @@ Characteristics of **Real** Symmetric Matrices:
 * Their eigenvectors corresponding to *distinct* eigenvalues are orthogonal.
 * They are always diagonalizable. (*Spectral Theorem*)
 
-> [!note] Positive Semi Definite Matrix
+> [!important] Positive Semi Definite Matrix
 > A symmetric or Hermitian matrix is PSD if for any vector x, $\vec{x}^TA \vec{x}\geq 0$. 
 
 **Positive Semi Definite** need not to be Symmetric and obviously, symmetric matrices need not to be Positive Semi Definite.
@@ -27,5 +23,4 @@ Positive Semi Definite Matrix ($A\geq{0}$)
 * Singular values = Eigen values $\sigma = |\lambda|$
 
 *For general matrices (non-symmetric, non-Hermitian), there's no direct equality between eigenvalues and singular values.*
-
 

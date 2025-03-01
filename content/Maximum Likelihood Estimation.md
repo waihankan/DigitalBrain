@@ -95,7 +95,7 @@ l(\mu, \sigma, X_{1}, \dots X_{n}) = \ln f(X_{1}) + \ln f(X_{2}) + \ln f(X_{n})
 $$
 
 
-Recall the PDF of Normal Distribution is:
+Recall the PDF of [[Multivariate Gaussian Distribution]] is:
 
 $$
 f(x) = \frac{1}{(\sqrt{ 2\pi} \sigma)^d} \cdot \exp\left(-\frac{\lVert  x - \mu\rVert^2}{2\sigma^2}\right)

@@ -32,20 +32,32 @@ Choose `n` mutually orthogonal **unit** n vectors $v_{1}, \dots, v_{n}$ of a Sym
 
 This V is called **orthogonal matrix** (in math) **orthonormal matrix**. Orthonormal matrix acts like a rotation / reflection.  Choose some eigenvalues $\lambda_{i}$:
 
+
  $$
  \Lambda = \begin{bmatrix}
 \lambda_{1} &  \\
  & \ddots  \\
  &  &  \lambda_{n} 
 \end{bmatrix}
+$$
 
-$$$$Av_{i} = \lambda_{i}v_{i}$$
+$$
+Av_{i} = \lambda_{i}v_{i}
+$$
 
-$$AV = V\Lambda $$
+$$
+AV = V\Lambda
+$$
 
-$$A = V\Lambda V^T$$
+$$
+A = V\Lambda V^T
+$$
 
-**Spectral Theorem**: $$A = V\Lambda V^T = \sum_{i}^n\lambda_{i}v_{i}v_{i}^T $$
+**Spectral Theorem**:
+
+$$
+A = V\Lambda V^T = \sum_{i}^n\lambda_{i}v_{i}v_{i}^T
+$$
 Note that each $v_{i}v_{i}^T$ is a n x n matrix with rank at most 1. 
 
 This is a matrix factorization called Eigen Decomposition. Every real symmetric matrix will have this decomposition (so called **spectral theorem**)
@@ -77,10 +89,16 @@ $$
 $$
 
 
-Also Note that $$A^2 = V\Lambda^2V^T$$
+Also Note that
+
+$$
+A^2 = V\Lambda^2V^T
+$$
 Same Eigenvectors, different eigenvalues.
 
-$$A^{-1} = V\Lambda^{-1}V^T$$
+$$
+A^{-1} = V\Lambda^{-1}V^T
+$$
 Same Eigenvectors, different eigenvalues.
 
 ---

@@ -79,14 +79,3 @@ A symmetric matrix M
 Isotropic = Variance is the same in all directions.
 
 --- 
-### Anisotropic Gaussians
-
-$X \sim \mathbf{N}(\mu, \Sigma)$
-
-PDF is 
-$$\frac{1}{\sqrt{ (2\pi)^2\lvert \Sigma \rvert  }}\exp\left( -\frac{1}{2} (x-\mu)^T \Sigma^{-1}(x - \mu) \right)$$
-
-$\lvert \Sigma \rvert \text{determinant}$
-
-$\Sigma$ is the d x d PSD **Covariance Matrix**
-$\Sigma^{-1}$ is the d x d PSD **Precision Matrix**

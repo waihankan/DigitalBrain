@@ -98,3 +98,28 @@ $$
 </figure>
 
 ---
+
+## GDA vs LDA 
+
+For Two-classes Classification:
+
+1. LDA has `d+1` parameters (w, $\alpha$).
+2. QDA has $\frac{d(d+3)}{2} + 1$ parameters.
+3. LDA is more likely to *underfit* (small number of parameters).
+4. QDA is more likely to overfit (the danger is much bigger wiith larger dimensions d) as the parameters grow with squared of the dimensions.
+
+
+
+Cautions: 
+*  that QDA or LDA on data doesn't find the True Baye's Classifier. In fact, it is not possible to get a true Baye's Classifier since we do not know the true parameters / distribution of real world data. Most of the time, if not all the time, we use the estimated distributions from *finite data*. Moreover, real-world data might not fit the Gaussian perfectly.
+* Changing Prior Probabilities or Loss Functions is the same as adding constants (actually `ln(constants)`) to our discriminant functions. Thus, in a two-class classifiers, changing these values would be the same as simply changing isovalue.
+* Posterior Probability gives us some sort of confidence levels.
+* Decision boundaries are drawn at different probability thresholds (e.g 10%, 50%, 90%) to indicate how confident we need to be before making a classification decision. 50% for 0-1 loss functions.
+* Setting the decision boundary at probability `p` is the same as setting asymmetric loss values for false positives and false negatives. (Similarly, the prior probability follows the same rule).
+* LDA can result in non-linear decision boundaries if we introduce new features or transformations.
+
+
+> [!cite]+
+> _LDA & QDA are the best method in practice for many applications. In the STATLOG project, either LDA_ _or QDA were among the top three classifiers for 10 out of 22 datasets. But it’s not because all those datasets_ _are Gaussian. LDA & QDA work well when the data can only support simple decision boundaries such as_ _linear or quadratic, because Gaussian models provide stable estimates._
+
+[[Decorrelating the Design Matrix]]

@@ -58,11 +58,18 @@ Let $n_{c}$ be the number of training points in class C.
 
 #### Linearly Discriminant Analysis (LDA)
 
-1. **Covariance Matrix:** For LDA, we want *pool-covariance within-class matrix* $\hat{\Sigma}$. That means: 
+1. **Covariance Matrix:** For LDA, we want *pool-covariance within-class matrix* $\hat{\Sigma}$. **Note: This is a weighted sum with prior probabilities. **That means: 
 
 $$
 \hat{\Sigma} = \frac{1}{n}\sum_{c}\sum_{i:y_{i} = c} (X_{i} - \hat{\mu}_{c})(X_{i} - \hat{\mu}_{c})^T
 $$
+
+$$
+\hat{\Sigma} = \sum_{c}\frac{n_{c}}{n} . \frac{1}{n_{c}} \sum_{i:y_{i} = c} (X_{i} - \hat{\mu}_{c})(X_{i} - \hat{\mu}_{c})^T
+$$
+
+Note that $\frac{n_{c}}{n}$ is the same as `prior probability of class C`. And the rest of the terms is covariance of `class C`.
+
 2. **Discriminant Function**:
 		$$
 		Q_{c}(x) = \mu_{c}^T\Sigma^{-1}x - \frac{\mu_{c}^T\Sigma^{-1}\mu_{c}}{2} + \ln \pi_{c}
@@ -79,7 +86,7 @@ $$
 4. **Posterior Probability (for two class)**:
 		$$
 		P(Y = C | X = x) = s(w^Tx + \alpha)=s(Q_{
-		C}(x) - Q_{D}(x)) = \frac{1}{1-e^{Q_{D}(x) - Q_{C}(x)}}
+		C}(x) - Q_{D}(x)) = \frac{1}{1+ e^{Q_{D}(x) - Q_{C}(x)}}
 		$$
 5. **Visualization**:
 

@@ -119,29 +119,3 @@ Review of Linear Algebra Module. Big Points. What are important according to Tom
 			* PseudoInverse $A^+ = V\Sigma^+U^T$ Solving Least Squares, Mapping between Subspaces.
 
 
-
-
-```ad-note
-title: This is a tip
-This is the content of the admonition tip.
-```
-
-> [!bug]- This is a tip
-> This is the content of the admonition tip.
-
-
-> [!attention] test
-> hello
-
-
-```ad-bug 
-title: Big Bug
-This is a bug
-```
-
-
-```ad-example
-```
-
-
-

@@ -11,6 +11,15 @@ tags:
 * Suppose X is a $n\times d$ design matrix. It contains n data points (samples) with d dimensions (features).
 * Each row represents a single sample (point in d-dimensional space) $x_{i}^T$.
 
+$$
+X = \begin{bmatrix}
+x_{1}^T \\
+x_{2}^T  \\
+\vdots \\
+x_{n}^T
+\end{bmatrix}
+$$
+
 #### Centering the Matrix X
 * Centering is basically the same as subtracting the mean from all data points. In other words, we subtract the **mean of all rows from each row**.
 * The new matrix $\dot{X}$ has approximately zero mean.
@@ -29,13 +38,27 @@ tags:
  Var(R) = \frac{1}{n}\dot{X}^T\dot{X}
 $$
 
+The general covariance formula is that:
+$$
+Var(R) = \frac{1}{n} \sum_{i=1}^{n} (x_{i} - \bar{x}_{i})(x_{i} - \bar{x}_{i})^T
+$$
+
+$$
+= \frac{1}{n}\sum_{i=1}^{n} x_{i}x_{i}^T
+$$
+
+$$
+=\frac{1}{n}X^TX
+$$
+
 #### Decorrelating $\dot{X}$
 * *When we **decorrelate** a dataset, we are transforming it into a new coordinate system where the features become **uncorrelated**. This is useful because many machine learning algorithms work better when features are independent.*
 * We want to decorrelate to make the covariance matrix diagonal. To remove correlation, we apply an eigenvector transformation:
 $$
 Z = \dot{X}V
 $$
-where, V is the eigenvectors of Var(R), that is $Var(R) = V \Lambda V^T$. The diagonal values of $\Lambda$ represent the variance along the eigenvector axes.
+where, V is the eigenvectors of Var(R), that is $Var(R) = V \Lambda V^T$. The diagonal values of $\Lambda$ represent the variance along the eigenvector axes. **We do right multiply instead of left** because the $\dot{X}$ is a design matrix with rows being the data, and rowvar = False in numpy covariance.
+
 Thus, Variance of Z will be:
 
 $$
@@ -55,7 +78,7 @@ $$
 $$
 Var(Z) = \Lambda
 $$
-dd
+
 #### Sphering / Whitening 
 * Make all features have unit variance.
 * We get this by applying:

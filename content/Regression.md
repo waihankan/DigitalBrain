@@ -1,3 +1,11 @@
+---
+title: Regression + Linear Regression
+tags:
+  - cs189
+  - machine-learning
+  - least-square
+---
+
 Linear Regression and Logistic Regression are two different decision making algorithms.
 
 **Linear Regression:**
@@ -21,9 +29,9 @@ y = \beta_0 + \beta_{1}x_{1} + \dots + \beta_{n}x_{n}\; , y \in
 		$$
 3. Logistic Regression uses "Log Loss".
 
+---
+
 In GDA, we were regressing over the posterior probability.
-
-
 
 * Choose Form of Regression Function h(x; w) with parameters w. (h = hypothesis)
 * Choose a Cost function (objective function) to optimize
@@ -42,6 +50,9 @@ Let $\hat{y}$ be the prediction given by $h(x)$; $y$ be the true label.
 2. $L(\hat{y}, y) = \lvert \hat{y}- y \rvert$ - absolute error - not sensitive to outliers. Harder to optimize.
 3. $L(\hat{y}, y) = -y\ln \hat{y} - (1-y)\ln(1-\hat{y})$  - Logistic loss, a.k.a cross-entropy. IMPORTANjT* - $y \in [0, 1], \hat{y} \in (0, 1)$
 
+>[!hint] Observations
+> * Squared Error is smooth quadratic and convex - meaning it has a closed form solution. Just set gradient = 0 for minimum.
+> * Logistic Loss is also smooth but non-quadratic and non-linear - meaning the function is still convex (a single global minimum) but need numerical method to find the optimum. 
 #### Some Cost functions to Minimize:
 
 1. $J(h) = \frac{1}{n}\sum_{i=1}^{n}L(h(x_{i}), y_{i})$  -- *mean loss (empirical risk). Note that $\frac{1}{n}$ does not matter in optimization.*

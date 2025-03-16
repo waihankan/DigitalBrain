@@ -4,6 +4,7 @@ tags:
   - cs189
   - machine-learning
 ---
+### Logistic Regression
 
 > Despite the name “regression,” logistic regression is mainly used for **classification**, not regression.
 
@@ -202,5 +203,67 @@ $$
 <p align="center">
 	<img src="Pasted image 20250315185017.png">
 </p>
+---
+
+Deriving Matrix Form for Newton's method
+Recall: 
+
+$$
+\text{Update rule:   }w_{t+1} = w_{t} - (\nabla^{2}J(w_{t}))^{-1}\nabla J(w_{t}) 
+$$
+$$
+\nabla J(w) = -\sum_{i=1}^{n} (y_{i}-s_{i})x_{i} =  -X^T(y-s)
+$$
+$$
+s'(r) = s(r)(1-s(r))
+$$
+Compute Hessian:
+
+$$
+\nabla^{2}J(w) = \sum_{i=1}^{n} s_{i}(1-s_{i})X_{i}X_{i}^T = X^T\Omega X, \text{where } \Omega = \begin{bmatrix}
+s_{1}(1-s_{1}) &   & 0 \\
+ & \ddots &  &  \\
+0 &  &    s_{n}(1-s_{n})
+
+\end{bmatrix}
+$$
+
+>[!warning]+ Important
+>$\Omega$ is Positive Definite. $X^T\Omega X$ is Positive Semi-Definite. Hessian Matrix PSD implies that J is a convex function.
+
+#### Pseudocode for Newton's Method
+
+>[!important]+
+> w $\leftarrow$ 0
+> Repeat until convergence:
+> $e \leftarrow$ solution to normal equation $(X^T\Omega X)e = X^T(y-s) = -(\nabla^{2}J(w))^{-1}\nabla J(w)$
+>w $\leftarrow$ w + e
+
+🔺The $\Omega$ here acts in the opposite way as that of from the Weighted Least Squares. 
+* Misclassified points far from decision boundary - most influence.
+* Correct points far from decision boundary - least influence.
+* Misclassified points near the decision boundary - medium influence.
+* Points (both correct and misclassified) near the decision boundary - medium influence.
+* Correct Points near the decision boundary **if there is no misclassified points** - most influence.
+
+---
+# LDA vs Logistic Regression
+
+<u> Advantages of LDA: </u>
+* For **well-separated classes**, LDA is more stable compared to Logistic Regression. (Think about the case where the data is linearly separable, but a new 'outlier' point can drastically change the decision boundary of the logistic regression).
+* For more than two classes, LDA has a natural/more elegant way of handling it. For logistic regression, we will need to use **Softmax Regression**.
+* If the sample is small and normal, LDA is probably more accurate.
+
+<u> Advantages of Logistic Regression: </u>
+* More emphasis on the decision boundary.
+* If the data is linearly separable (and the data is reliable), linear regression will give a decision boundary that is 100% correct (at least on the training dataset).
+* Correctly classified points far from the decision boundary will weigh less. Note that in SVM, these data points have zero effect on the decision boundary. In LDA, all data points are weighted equally.
+* **Weighting points based on how badly they're misclassified is good for reducing the Training Error, but it can also be bad if you want a more stable / insensitivity to the data. (if we know the data is bad/ sometimes bad), logistic regression might fail**.
+* More robust on **non-gaussian** distribution (eg. large skew distribution).
+* Naturally fits labels between 0 and 1.
+
+> [!danger] 
+> * LDA and Logistic Regression has similar decision boundary. i.e. ==linear decision boundary==. But they do not result in the same algorithm.
+> * QDA and Logistic Regression with quadratic features give ==quadratic decision boundary== but not the same exact classifier.
 
 

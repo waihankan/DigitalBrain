@@ -41,7 +41,8 @@ $$
 <p align="center">
 	<img src="Pasted image 20250312173321.png">
 </p>
->[!help] Observation
+
+> [!help] Observation
 > A good observation here would be to see what the logistic loss is doing intuitively. Evidently, the loss function penalizes harder (larger) if it has a high confident that the label is wrong.
 
 ---
@@ -158,3 +159,48 @@ Stochastic gradient descent works best if we shuffle the data beforehand. In cas
 - Logistic regression **does separate** linearly separable points.
 - It achieves **perfect separation** by making the decision boundary **infinitely confident**—which corresponds to w getting infinitely large.
 - w **diverges**(goes to infinity), but J(w) **converges** to zero.
+
+---
+
+### Newton's Method
+
+>[!warning]+ Warning
+> We assume that the logistic regression cost function (convex, non-quadratic) is guaranteed to converge with Newton's method. 
+
+>[!info] Taylor's Series
+> $f(x) = f(a) + f'(a)(x-a) + \dots$ 
+> Taylor's Series can be applied to functions**that are infinitely differentiable** (smooth) (including the gradient of logistic regression cost function $\nabla J(w)$
+
+==Important== Let's write $\nabla J(w)$ in terms of its Taylor's Series:
+$$
+\nabla J(w) \approx \nabla J(v) + \nabla^{2}J(v)(w - v) + O(\lVert w-v \rVert ^{2}) \quad \text{where} \; \nabla^{2}J(v) = \text{Hessian Matrix of J at v}
+$$
+
+Recall that our ==main goal== is to find the minimum of cost function $J(w)$, which is equivalent to finding $\nabla J(w) = 0$. 
+
+$$
+\begin{align}
+0 = \nabla J(v) + \nabla^{2}J(v) (w - v) \\
+w-v = -\frac{{\nabla J(v)}}{\nabla^{2}J(v)} \\
+w = v - \frac{\nabla J(v)}{\nabla^{2}J(v)} \\
+w = v - (\nabla^{2}J(v))^{-1}\nabla J(v)
+\end{align}
+$$
+
+>[!important] Newton's Method Update Rule
+>$$
+>w_{t+1} = w_{t} - (\nabla^{2}J(w_{t}))^{-1}\nabla J(w_{t})
+>$$
+>Intuitively, we start from a point v, find the gradient and hessian at J(v) = (local quadratic approximation to J). Each iteration, we jump to the bottom of the approximated quadratic function. Next `w` is the minimum of approximated J that we found from gradient and hessian of real J. 
+> * Also note that this will only work if the Hessian Matrix is invertible. In logistic regression, it does.
+> * Does not know difference between minima, maxima, saddle points. Logistic regression only has a global minimum.
+> * If J is quadratic, Newton's method will converge in one iteration because the approximated (brown graph) is unique. (same first derivative and same second derivative).
+> * Newton's method does not work on perceptron risk function, whose Hessian is zero except where Hessian is not even defined.
+> * Computing Hessian inverse is expensive and need to do it every iteration.
+> * Only works for smooth function.
+
+<p align="center">
+	<img src="Pasted image 20250315185017.png">
+</p>
+
+

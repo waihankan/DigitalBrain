@@ -5,16 +5,16 @@ tags:
   - machine-learning
   - least-square
 ---
-
 Linear Regression and Logistic Regression are two different decision making algorithms.
 
 **Linear Regression:**
 1. produces a continuous output that can take any real value.
-2. Linear Regression Equation:
+2. Linear Regression Equation:  
+ $$
+		y = \beta_0 + \beta_{1}x_{1} + \dots + \beta_{n}x_{n}\; , y \in 
+		\mathbb{R}
 	$$
-y = \beta_0 + \beta_{1}x_{1} + \dots + \beta_{n}x_{n}\; , y \in 
-\mathbb{R}
-	$$
+	
 3. Linear regression uses Mean Squared Error (MSE):
 
 
@@ -185,5 +185,54 @@ If $H = I$, there is no training error since it means all the training points li
 
 ---
 
+### Least Squares Polynomial Regression
+
+>[!note]+ Kernel Trick
+> The idea here is to life the dataset into higher dimensions so that we could do some regression algorithm on the lifted dataset with linear decision boundary. Lifting data into higher dimensions makes it easier to separate (or fit) with a linear model because, in the original space, the relationship is non-linear.
+
+Replace each $x_{i}$ with $\phi(x_{i})$ with <u>all terms of degree</u> $0 \dots p$
+
+Example:  $\phi(x_i) = [x_{i_{1}}^{2} + x_{i_1}x_{i_{2}} + x_{i_{2}}^{2}+x_{i_{1}} + x_{i_{2}} + 1$]
+
+But, we need to be cautious since it is very easy to overfit. (too many parameters). ==A large amount of data can tame the high degree polynomials oscillation.== Extrapolation is harder than interpolation.
+
+---
+
+### Weighted Least Squares Regression
+
+Linear Regression Function + Squared Loss Function + Weighted Cost Function.
+
+Assign each sample points a weight $w_i$ (this comes from domain knowledge). 
+Greater $w_{i}$ means focus more on the same i to minimize $(\hat{y}_{i} - y_{i})^{2}$.
+
+
+Weighted Least Squares can be formulated as: 
+
+$$
+\begin{align}
+&= argmin_{w} (Xw - y)^T\Omega (Xw - y)\\ \\
+&= argmin_{w}\sum_{i=1}^{n} \omega_{i}(X_{i}.w - y_{i})^{2}
+ \\
+w^* &= (X^T\Omega X)^{-1}X^T\Omega y
+\end{align}
+
+$$
+_Normal Equations / Solve by finding the gradient (the same)._
+
+---
+
+
+
+
+
+
+
+
+
+
+
 
 [[Logistic Regression (1958)]]
+
+
+

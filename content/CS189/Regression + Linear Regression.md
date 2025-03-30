@@ -10,7 +10,8 @@ Linear Regression and Logistic Regression are two different decision making algo
 **Linear Regression:**
 1. produces a continuous output that can take any real value.
 2. Linear Regression Equation:  
- $$
+
+	 $$
 		y = \beta_0 + \beta_{1}x_{1} + \dots + \beta_{n}x_{n}\; , y \in 
 		\mathbb{R}
 	$$

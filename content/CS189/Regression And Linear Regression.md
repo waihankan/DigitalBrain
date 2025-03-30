@@ -1,5 +1,5 @@
 ---
-title: Regression + Linear Regression
+title: Regression And Linear Regression
 tags:
   - cs189
   - machine-learning
@@ -102,14 +102,16 @@ The `cost function` that we use in linear regression is the `sum of squares of e
  
 >[!note]+ Design Matrix Convention
 > Design matrix is a `nxd` matrix of sample points and y is a `n` vector of scalar labels.
+>
 > $$
 > \begin{bmatrix}
 > -x_{1}^T -\\
 > - x_{2}^T -  \\
 > \vdots \\
 > - x_{n}^T -
-\end{bmatrix}
+> \end{bmatrix}
 > $$
+>
 > where $x_{i} \in \mathbb{R}^d$. The columns are features and the rows are sample points. Typically, `n > d` if we have enough sample points.
 
 >[!warning]+ Fictitious Dimension
@@ -221,16 +223,6 @@ $$
 _Normal Equations / Solve by finding the gradient (the same)._
 
 ---
-
-
-
-
-
-
-
-
-
-
 
 
 [[Logistic Regression (1958)]]

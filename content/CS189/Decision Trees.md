@@ -150,3 +150,96 @@ Thus, running time is `O(nd depth)`
 
 ---
 
+# Decision Tree Regression
+
+> We have explored the decision tree classification in the above paragraphs and now, we will explore regression with decision trees.
+
+Noticeable Differences
+* Classification trees predict discrete classes.
+* Regression trees predict real-valued outputs (price, temperature, score, etc.)
+* Instead of storing **the majority class in leaf** (as in classification), regression trees store the **average of the target values in the leaf**.
+
+---
+
+### Decision Tree Regression
+
+<p align="center">
+<img src="Pasted image 20250331175903.png">
+</p>
+Decision tree creates a piecewise constant regression function.
+
+* Leaf stores label $\mu_{s} = \frac{1}{\lvert S \rvert}\sum_{i\in S}y_{i}$
+* Cost function is the variance of points in subset `S`: $J(S) = \frac{1}{\lvert S \rvert}\sum_{i\in S}(y_{i} - \mu_{S})^{2}$.
+* The cost will be zero if all points in the leaf have the same value.
+* We choose the split that minimizes the weighted average of the variances of the children after the split.
+
+---
+
+## When should we stop and Why? (Stopping Early)
+
+> Why do we stop early?
+* Limit tree depth for speed
+* Limit tree size for big data sets
+* Pure tree may overfit most of the time
+* Given noise or *overlapping distributions*, pure leaves tend to overfit; thus, better to stop early and **estimate the posterior probabilities**.
+
+
+>[!cite] 
+> 1. When you have strongly overlapping class distributions, refining the tree down to one training point per leaf  is absolutely guaranteed to overfit, giving you a classifier akin to the 1-nearest neighbor classifier. It’s better to stop early, then classify each leaf node by taking a vote of its training points; this gives you a classifier akin to a k-nearest neighbor classifier.
+> 2.  Alternatively, you can use the points to estimate a posterior probability for each leaf, and return that. If there are many points in each leaf, the posterior probabilities might be reasonably accurate.
+
+![[Pasted image 20250331180953.png]]
+
+> **In the case of early stop**, the leaves will not be pure, in which case they will return multiple points with:
+> * a majority vote or a posterior probability for **Classification problems**
+> * an average (mean or median) for **Regression problems**
+
+So now that we know why stopping early might be a good idea, let's see **HOW** we stop early. What are the conditions? 
+
+1. The next split is not doing much (doesn't reduce entropy / error) enough. (Not the best; can be dangerous; pruning is better).
+2. Most of node's points (e.g. >90%) have the same class.
+3. Node contains too few points (e.g. < 10 points) for a big data set.
+4. Box's edges are all tiny (super-fine resolution maybe an overfitting sign).
+5. Depth too deep (not a big problem in general, but bad for speed).
+6. Use validation to compare (best in practice).
+
+---
+ 
+Let's explore more on the use of validation to decide whether to split the node or not. In general, a better idea is to used a method so called **Pruning**. Basically, we grow the tree as large as possible and greedily remove splits if the removal of that specific split reduces the validation error.
+
+We do need to do the validation once for each split that we're considering reversing. This is slow but a rather reliable in practice.
+
+Flow:
+	We split the tree -> check validation after the split -> try pruning a node -> Check validation after the split. If the validation seem to do better after pruning, remove that specific node.
+
+
+>[!warning] **Important Note:**
+> * We can only prune the leaves and prune recursively (bottom to top). 
+> * The reason why pruning often works better than stopping early is because often **a split that doesn’t seem to make much progress is followed by a split that makes a lot of progress.** If you stop early, you’ll never find out. Pruning is simple and highly recommended when you have enough time to build and prune the tree.
+
+![[Pasted image 20250331185940.png]]
+
+**Number of leaves = Number of Regions.**
+
+#### Validation for each iteration in pruning is not very expensive.
+
+What we can do is compute which leaf each validation point winds up in, and then for each leaf, you make a list of its validation points. So, when we do the validation test for whether to prune the leaf or not, we can just use those points in those two leaves: not an entire validation set.
+
+<p align="center">
+<img src="Pasted image 20250331190711.png">
+</p>
+We have to see how the validation points will be reclassified and how that will change the error rate. In the above figure, pruning results in the leaf labelling as red color. The pruned posterior probability is better than the weighted sum of posterior probabilities of the split children.
+
+---
+
+#### Multivariate Splits (Non Axis Aligned Splits)
+
+The idea is that we generate non-axis-aligned splits by other classification algorithms like logistic regression, GDA, SVMs or a random generator. The decision tree then allow these algorithms to find non-linear decision boundaries by making them hierarchical.
+
+By doing so, we may get a better classifier at the cost of worse speed and no-interpretability. Since we're checking all features at each node (instead of just one feature like in axis-aligned splits), it will slow down the classification.
+
+A good balance is to set a limit on the number of features we check at each tree node.
+
+---
+
+[[Ensemble Learning]]

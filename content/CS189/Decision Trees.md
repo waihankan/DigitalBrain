@@ -52,6 +52,7 @@ tags:
 <p align="center">
 <img src="Pasted image 20250330193823.png">
 </p>
+
 *The issue here is cost_before = cost_after  = ($J(S_{l})+J(S_{r})$)for both left and right figures even though the left split seems to do a better job.*
 
 Weighted Sum of Cost will prefer the right split (which is not a good split).
@@ -68,7 +69,9 @@ Suppose Y be a random class variable and $P(Y = C) = P_{c}$.
 <p align="center">
 <img src="Pasted image 20250330195831.png" width="200px" height="250px">
 </p>
+
 $\log(x)$ graph. Negative between 0 and 1. $\log(0) = -\infty$.
+
 
 1. **Entropy of an index set S**: is **the average surprise** when you draw a point at random from S.
 $$
@@ -81,6 +84,8 @@ $$
 <p align="center"> 
 	<img src="Pasted image 20250330201337.png">
 </p>
+
+
 > [!note] Information Gain
 > Information gain is defined as: 
 > $$

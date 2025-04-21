@@ -24,7 +24,7 @@ https://medium.com/@sebastiannorena/pca-principal-components-analysis-applied-to
 
 Given sample points in $\mathbb{R}^d$, find `k` directions that capture most of the variation.
 
-<figure style="text-align: center;">
+<figure align="center">
 	<img src="Pasted image 20250420214422.png"/>
 	<p>Left is the Feature Space and Right is the Principal Component Space</p>
   </figure>
@@ -34,7 +34,7 @@ Given sample points in $\mathbb{R}^d$, find `k` directions that capture most of 
 
 `One image` = `784 dimensional vector` -> `PCA` -> `2 dimensional vector`
 
-<p style="text-align:center">
+<p style="text-align:center;">
 	<img src="Pasted image 20250420214756.png"/>
 </p>
 
@@ -67,7 +67,7 @@ Why do we do PCA?
 2. Recall that MLE estimates a covariance matrix $\hat{\Sigma} = \frac{1}{n}X^TX$.
 
 
-<p style="text-align:center">
+<p style="text-align:center;">
 	<img src="Pasted image 20250421011714.png">
 </p>
 
@@ -86,7 +86,7 @@ Why do we do PCA?
 12. If we constrain `w` to be orthogonal to $v_{d}$, we get the second principal component $v_{d-1}$.
 13. Alternatively, using SVD, this corresponds to subtracting $\sigma_{d} u_{d}v_{d}^T$ (rank-1 approximation) from the original matrix $X$, and applying the same procedure on the residual matrix.
 
-<figure style="text-align:center">
+<figure style="text-align:center;">
 	<img src="Pasted image 20250421011822.png">
 	<p>The blue dots are the projected points and we want to maximize the variance of them.</p>
 </figure>
@@ -103,12 +103,12 @@ Why do we do PCA?
 * This is the same as maximizing the latter term, which is the same as maximizing `n x the variance of the project points (from part 2).`
 * **Minimizing the mean squared projection distance = Maximizing the variance of the projected data points.**
 
-<figure style="text-align:center">
+<figure style="text-align:center;">
 	<img src="Pasted image 20250421144229.png">
 </figure>
 
 
-<figure style="text-align:center">
+<figure style="text-align:center;">
 	<img src="Pasted image 20250421144309.png">
 	<p> Least Squares Vs Principal Component Analysis Distances </p>
 </figure>
@@ -150,7 +150,7 @@ X_pca = X_centered @ top_k_eigvecs # (n, k)
 ```
 
 
-<figure style="text-aligned=center">
+<figure style="text-align:center;">
 	<img src="Pasted image 20250421011911.png">
 	<p>How to choose number of principal components and whether or not to normalize data before doing PCA.</p>
 </figure>
@@ -170,6 +170,6 @@ X_pca = X_centered @ top_k_eigvecs # (n, k)
 	* <u>Eigenfaces encode both face shape and lighting. Some people say that the first 3 eigenfaces are usually all about lighting, and you sometimes get better facial recognition by dropping the first 3 eigenfaces.</u>
 
 
-<figure style="text-align:center">
+<figure style="text-align:center;">
 	<img src="Pasted image 20250421145405.png"/>
 </figure>

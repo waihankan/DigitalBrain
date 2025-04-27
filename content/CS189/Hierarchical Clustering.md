@@ -58,6 +58,7 @@ Cut dendrogram into clusters by horizontal line according to the number of clust
 <p align="center">
 	<img src="Pasted image 20250426215341.png">
 </p>
+
 * Notice that the single linkage is prone to outliers and give very unbalanced trees. (e.g. k = 3 cut).
 * The complete tends to be the best balanced. When a cluster gets bigger, the farthest point in the cluster is always far away. If balanced clusters is what we want, we should use max distance / complete linkage.
 * In most applications, one use average or complete linkage.
